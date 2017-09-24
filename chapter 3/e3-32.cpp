@@ -14,22 +14,22 @@ int main()
         vec.push_back(num);
         cout << "Got it:" << num << " Add to the vector.(Tyep a no-figure or Ctrl+Z to OVER)" << endl;
     }
-    cout << endl << "vector is:" << endl;
-    for ( auto &c: vec )
-        cout << c << ' ';
-
-    cout << "Could vec[1] = 123 change the vector?" << endl;
-    vec[1] = 123;
-
-    cout << endl << "vector is:" << endl;
+    cout << endl << "vector vec is:" << endl;
     for ( auto &c: vec )
         cout << c << ' ';
 
     cout << endl << "Use copyv = vec Copy vec to copyv."<<endl;
     copyv = vec;
-    cout << endl << "vector copyv is:" << endl;
+    cout << "vector copyv is:" << endl;
     for ( auto &c: copyv )
         cout << c << ' ';
+
+    cout << endl << "Do copyv copy or link to the vec?" << endl;
+    copyv[0] = 123456;
+    for ( auto &c: vec )
+        cout << c << ' ';
+    cout << endl << "Copy!Don't link,change copyv don't influence vec." << endl;
     //DON'T FORGET RETRUN;
     return 0;
 }
+

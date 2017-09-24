@@ -5,7 +5,6 @@ int main()
 {
     using namespace std;
     vector<int> vec;
-    vector<int> copyv;
     int num;
 
     cout << "Enter num add to the vector:";
@@ -18,18 +17,13 @@ int main()
     for ( auto &c: vec )
         cout << c << ' ';
 
-    cout << "Could vec[1] = 123 change the vector?" << endl;
-    vec[1] = 123;
+    for( auto &c: vec )
+        if( ((c)%2) != 0 )
+            c *= c;
 
     cout << endl << "vector is:" << endl;
     for ( auto &c: vec )
         cout << c << ' ';
 
-    cout << endl << "Use copyv = vec Copy vec to copyv."<<endl;
-    copyv = vec;
-    cout << endl << "vector copyv is:" << endl;
-    for ( auto &c: copyv )
-        cout << c << ' ';
-    //DON'T FORGET RETRUN;
     return 0;
 }
