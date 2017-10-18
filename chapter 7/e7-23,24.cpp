@@ -9,7 +9,16 @@ public:
     screen() = default;
     screen(pos Height, pos Width);
     screen(pos Height, pos Width, char c);
+    screen &mymove(pos h, pos w);
+    screen &mymove(pos h, pos w) const;
+    screen &myset(pos h, pos w, char c);
+    screen &myset(pos h, pos w, char c) const;
+    screen &mydisplay(std::ostream &os);
+    screen &mydisplay(std::ostream &os) const;
 private:
+    void do_move(pos h, pos w);
+    void do_set(pos h, pos w, char c);
+    void do_display(std::ostream &os);
     pos height = 0;
     pos width = 0;
     pos cursor = 0;
@@ -30,6 +39,12 @@ screen::screen(pos Height, pos Width, char c)
     std::string temp(height*width, c);
     contents = temp;
 }
+void do_move(pos h, pos w)
+{
+
+}
+void do_set(pos h, pos w, char c);
+void do_display(std::ostream &os);
 
 int main()
 {
