@@ -10,11 +10,11 @@ public:
     screen() = default;
     screen(pos Height, pos Width);
     screen(pos Height, pos Width, char c);
-    screen &mymove(pos h, pos w);
-    screen &myset(pos h, pos w, char c);
-    screen &myset( char c);
-    screen &mydisplay(std::ostream &os);
-    const screen &mydisplay(std::ostream &os) const;
+    screen mymove(pos h, pos w);
+    screen myset(pos h, pos w, char c);
+    screen myset( char c);
+    screen mydisplay(std::ostream &os);
+    const screen mydisplay(std::ostream &os) const;
 private:
     void do_display(std::ostream &os) const;
     pos height = 0;
@@ -38,17 +38,17 @@ screen::screen(pos Height, pos Width, char c)
     contents = temp;
 }
 //Func
-screen &screen::mymove(pos h, pos w)
+screen screen::mymove(pos h, pos w)
 {
     cursor = h*width + w;
     return *this;
 }
-screen &screen::myset(pos h, pos w, char c)
+screen screen::myset(pos h, pos w, char c)
 {
     contents[h*width + w] = c;
     return *this;
 }
-screen &screen::myset( char c)
+screen screen::myset( char c)
 {
     contents[cursor] = c;
     return *this;
@@ -57,12 +57,12 @@ void screen::do_display(std::ostream &os) const
 {
     os << contents;
 }
-screen &screen::mydisplay(std::ostream &os)
+screen screen::mydisplay(std::ostream &os)
 {
     do_display(os);
     return *this;
 }
-const screen &screen::mydisplay(std::ostream &os) const
+const screen screen::mydisplay(std::ostream &os) const
 {
     do_display(os);
     return *this;
